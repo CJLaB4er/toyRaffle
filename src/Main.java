@@ -1,5 +1,8 @@
+import java.util.SortedMap;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Toy toy = new Constructor(11);
+        System.out.println(toy);
     }
 }
