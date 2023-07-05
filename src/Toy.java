@@ -1,4 +1,4 @@
-public abstract class Toy {
+public abstract class Toy implements ToyInterface {
     protected String name;
     protected Integer id, chance;
 
@@ -12,9 +12,13 @@ public abstract class Toy {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("id = ");
         stringBuilder.append(id.toString());
-        stringBuilder.append(" ").append((String) name);
-        stringBuilder.append(" шанс выпадениия = ").append(this.chance.toString());
+        stringBuilder.append(", игрушка = \"").append((String) name);
+        stringBuilder.append("\", шанс выпадениия = ").append(this.chance.toString()).append("%");
         return stringBuilder.toString();
     }
 
+    @Override
+    public void changeChance(Integer chance) {
+        this.chance = chance;
+    }
 }
