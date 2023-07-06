@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
+import java.util.Scanner;
 
 public class Main {
     static List<Toy> toysList = new ArrayList<>();
     static List<Toy> winList = new ArrayList<>();
+
     public static void main(String[] args) {
         Toy toy1 = new Car(1);
         Toy toy2 = new Constructor(2);
@@ -18,9 +19,6 @@ public class Main {
         toysList.add(toy4);
         toysList.add(toy5);
         toysList.add(toy6);
-
-        for (int i = 0; i < 10 ; i++) {
-            System.out.println(Raffle.raffle((ArrayList<Toy>) toysList));
-        }
+        Menu.menu();
     }
 }
