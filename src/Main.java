@@ -19,6 +19,6 @@ public class Main {
         toysList.add(toy4);
         toysList.add(toy5);
         toysList.add(toy6);
-        Menu.menu();
+        Menu.menu((ArrayList<Toy>) toysList);
     }
 }

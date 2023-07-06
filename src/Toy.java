@@ -24,4 +24,12 @@ public abstract class Toy implements ToyInterface {
     public int compareTo(Toy toy){
         return toy.chance - this.chance;
     }
+
+    @Override
+    public void getInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("id=").append(id.toString()).append(", \"").append(name.toString()).append("\"");
+        stringBuilder.append(", шанс выпадения - \"").append(chance.toString()).append("%\"");
+        System.out.println(stringBuilder);
+    }
 }

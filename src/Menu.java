@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
     static boolean flag = true;
 
-    public static void menu() {
+    public static void menu(ArrayList<Toy> list) {
 
 
         Scanner scanner = new Scanner(System.in);
@@ -21,6 +22,8 @@ public class Menu {
             switch (choice) {
                 case "1":
                     System.out.println("\nВыбран пункт 1\n");
+                    Raffle.printInfo(list);
+                    System.out.println();
                     break;
                 case "2":
                     System.out.println("\nВыбран пункт 2\n");
