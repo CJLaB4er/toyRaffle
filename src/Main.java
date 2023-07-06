@@ -18,16 +18,6 @@ public class Main {
         toysList.add(toy5);
         toysList.add(toy6);
 
-        for (Toy toy: toysList) {
-            System.out.println(toy);
-        }
-        toy6.changeChance(5);
-        for (Toy toy: toysList) {
-            System.out.println(toy);
-        }
-        toysList.sort(Toy::compareTo);
-        for (Toy toy: toysList) {
-            System.out.println(toy);
-        }
+        System.out.println(Raffle.raffle((ArrayList<Toy>) toysList));
     }
 }
