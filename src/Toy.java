@@ -21,4 +21,7 @@ public abstract class Toy implements ToyInterface {
     public void changeChance(Integer chance) {
         this.chance = chance;
     }
+    public int compareTo(Toy toy){
+        return this.chance - toy.chance;
+    }
 }
