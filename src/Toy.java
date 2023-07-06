@@ -10,10 +10,10 @@ public abstract class Toy implements ToyInterface {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder("id = ");
-        stringBuilder.append(id.toString());
-        stringBuilder.append(", игрушка = \"").append((String) name);
-        stringBuilder.append("\", шанс выпадениия = ").append(this.chance.toString()).append("%");
+        StringBuilder stringBuilder = new StringBuilder("Вам выпала игрушка - \"");
+        stringBuilder.append(name.toString());
+        stringBuilder.append("\" с шансом выпадения ");
+        stringBuilder.append(this.chance.toString()).append("%");
         return stringBuilder.toString();
     }
 
@@ -22,6 +22,6 @@ public abstract class Toy implements ToyInterface {
         this.chance = chance;
     }
     public int compareTo(Toy toy){
-        return this.chance - toy.chance;
+        return toy.chance - this.chance;
     }
 }
