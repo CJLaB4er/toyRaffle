@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Raffle {
 
@@ -35,5 +36,16 @@ public class Raffle {
             winnerList.add(raffle(list));
         }
         return (ArrayList<Toy>) winnerList;
+    }
+    public static void changeCountRaffle(){
+        System.out.println("Введите количество необходимых игрушек...\n");
+        Scanner scan = new Scanner(System.in);
+        if (scan.hasNextInt()){
+            int count = scan.nextInt();
+            countRaffle = count;
+        }
+//        scan.close(); /При закрытии этого сканера, закрывается и в классе Menu
+        System.out.println("Количество розыгрышей игрушек изменено на " + Integer.toString(countRaffle) + "\n");
+
     }
 }

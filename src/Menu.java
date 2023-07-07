@@ -3,15 +3,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    static boolean flag = true;
-    static public List<Toy> winnerList;
+    static private boolean flag = true;
+
+    static private List<Toy> winnerList;
+    static String choice;
 
     public static void menu(ArrayList<Toy> list) {
 
 
         Scanner scanner = new Scanner(System.in);
-
-
         while (flag) {
             System.out.println("Выберите один из пунктов меню:\n" +
                     "1. Вывести информацию об имеющихся игрушках\n" +
@@ -20,7 +20,11 @@ public class Menu {
                     "4. Провести розыгрышь (информация о предыдущих розыгрышах будет потеряна)\n" +
                     "5. Записать результаты розыгрыша в файл (имеющийся файл будет перезаписан)\n" +
                     "6. Выйти из программы.\n");
-            String choice = scanner.nextLine();
+
+
+            choice = scanner.nextLine();
+
+
             switch (choice) {
                 case "1":
                     System.out.println("\nВыбран пункт 1\n");
@@ -31,7 +35,7 @@ public class Menu {
                     System.out.println("\nВыбран пункт 2\n");
                     break;
                 case "3":
-                    System.out.println("\nВыбран пункт 3\n");
+                    Raffle.changeCountRaffle();
                     break;
                 case "4":
                     System.out.println("\nПроизведён розыгрышь игрушек.\n");
@@ -42,6 +46,7 @@ public class Menu {
                     break;
                 case "6":
                     System.out.println("\nВыход из программы");
+                    scanner.close();
                     flag = false;
                     break;
                 default:
