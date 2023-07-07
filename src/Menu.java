@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
     static boolean flag = true;
+    static public List<Toy> winnerList;
 
     public static void menu(ArrayList<Toy> list) {
 
@@ -32,7 +34,8 @@ public class Menu {
                     System.out.println("\nВыбран пункт 3\n");
                     break;
                 case "4":
-                    System.out.println("\nВыбран пункт 4\n");
+                    System.out.println("\nПроизведён розыгрышь игрушек.\n");
+                    winnerList = Raffle.getRaffle(list);
                     break;
                 case "5":
                     System.out.println("\nВыбран пункт 5\n");
