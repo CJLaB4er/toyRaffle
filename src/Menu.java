@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     static private boolean flag = true;
+    static Scanner scanner = new Scanner(System.in);
 
     static private List<Toy> winnerList;
     static String choice;
@@ -11,7 +12,7 @@ public class Menu {
     public static void menu(ArrayList<Toy> list) {
 
 
-        Scanner scanner = new Scanner(System.in);
+
         while (flag) {
             System.out.println("Выберите один из пунктов меню:\n" +
                     "1. Вывести информацию об имеющихся игрушках\n" +
@@ -32,7 +33,7 @@ public class Menu {
                     System.out.println();
                     break;
                 case "2":
-                    System.out.println("\nВыбран пункт 2\n");
+                    Raffle.changeChanceToy(list);
                     break;
                 case "3":
                     Raffle.changeCountRaffle();
