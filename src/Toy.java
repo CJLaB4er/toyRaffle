@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 public abstract class Toy implements ToyInterface {
     protected String name;
     protected Integer id, chance;
@@ -19,9 +22,12 @@ public abstract class Toy implements ToyInterface {
 
     @Override
     public void changeChance(Integer chance) {
+
         this.chance = chance;
+        System.out.println("“еперь шанс выпадени€ у " + this.name + " равен " + this.chance + "%\n");
     }
-    public int compareTo(Toy toy){
+
+    public int compareTo(Toy toy) {
         return toy.chance - this.chance;
     }
 
@@ -31,5 +37,17 @@ public abstract class Toy implements ToyInterface {
         stringBuilder.append("id=").append(id.toString()).append(", \"").append(name.toString()).append("\"");
         stringBuilder.append(", шанс выпадени€ - \"").append(chance.toString()).append("%\"");
         System.out.println(stringBuilder);
+    }
+
+    @Override
+    public void writeToFile(String filename) {
+        try {
+            FileWriter file = new FileWriter(filename, true);
+            file.write(this.toString());
+            file.write("\n");
+            file.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

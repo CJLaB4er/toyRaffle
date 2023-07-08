@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -6,11 +8,10 @@ public class Menu {
     static private boolean flag = true;
     static Scanner scanner = new Scanner(System.in);
 
-    static private List<Toy> winnerList;
+    static private List<Toy> winnerList = new ArrayList<>();
     static String choice;
 
     public static void menu(ArrayList<Toy> list) {
-
 
 
         while (flag) {
@@ -28,7 +29,6 @@ public class Menu {
 
             switch (choice) {
                 case "1":
-                    System.out.println("\nВыбран пункт 1\n");
                     Raffle.printInfo(list);
                     System.out.println();
                     break;
@@ -39,11 +39,23 @@ public class Menu {
                     Raffle.changeCountRaffle();
                     break;
                 case "4":
-                    System.out.println("\nПроизведён розыгрышь игрушек.\n");
+                    System.out.println("Произведён розыгрышь игрушек.\n");
                     winnerList = Raffle.getRaffle(list);
                     break;
                 case "5":
-                    System.out.println("\nВыбран пункт 5\n");
+                    if (checkWinList((ArrayList<Toy>) winnerList)) {
+                        System.out.println("\nВведите название для файла\n");
+                        String fileName = scanner.nextLine();
+                        clearWriteFile(fileName);
+                        for (Toy toy : winnerList) {
+                            toy.writeToFile(fileName);
+                        }
+                        System.out.println("Результаты розыгрыша записаны в файл: " + fileName + "\n");
+                    } else {
+                        System.out.println("Перед записью результатов в файл, необходимо провести розыгрышь п.4\n");
+                    }
+
+
                     break;
                 case "6":
                     System.out.println("\nВыход из программы");
@@ -55,6 +67,19 @@ public class Menu {
             }
         }
 
+    }
+
+    public static void clearWriteFile(String filename) {
+        try {
+            FileWriter file = new FileWriter(filename);
+            file.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean checkWinList(ArrayList<Toy> list) {
+        return list.isEmpty() ? false : true;
     }
 
 }
